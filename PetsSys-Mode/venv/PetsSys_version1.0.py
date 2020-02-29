@@ -5,17 +5,28 @@ Pets=[]
 
 def add_pet():
     name=input("name:")
-    ID=input("ID:")
+    ID=int(input("ID:"))
     age=input("age:")
 
     pet={"name":name,"ID":ID,"age":age}
 
     Pets.append(pet)
     print("恭喜添加成功")
-    print(Pets)
+    print("Total:"+str(len(Pets)))
 
 def delete_pet():
-    pass
+    del_id=int(input("the pet's id you want to delete:"))
+    t=0
+    for pet in Pets:
+        if pet["ID"] == del_id:
+            Pets.remove(pet)
+            print("Delete it!")
+            t=1
+
+    if t==0:
+        print("please input valid ID")
+
+
 
 def show_allpets():
     for pet in Pets:
@@ -24,7 +35,13 @@ def show_allpets():
 
 
 def serch_pet():
-    pass
+    search_name=input("what is your pet's name:")
+
+    for pet in Pets:
+        if pet["name"]==search_name:
+            text="this petis :name-{};ID-{};age-{}".format(pet["name"],pet["ID"],pet["age"])
+            print("Find it:"+text)
+
 
 
 
